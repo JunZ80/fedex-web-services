@@ -85,9 +85,11 @@ module FedexWebServices
 
             rs.packageCount = package_weights.size
             rs.requestedPackageLineItems = mod::RequestedPackageLineItem.new.tap do |rpli|
+              puts weight
+              puts weight[:weight]
               rpli.sequenceNumber = ndx + 1
-              rpli.weight = weight.weight
-              rpli.dimensions = weight.dimensions
+              rpli.weight = weight[:weight]
+              rpli.dimensions = weight[:dimensions]
             end
           end
         end
